@@ -1,10 +1,9 @@
-package br.com.fiap.singleton;
+package br.com.fiap.loja.singleton;
 
 import java.io.IOException;
 import java.util.Properties;
 
-public class ConfiguracaoSingleton {
-
+public class Filial {
   // 1 - Atributo estático que armazena o único objeto
   private static Properties props;
 
@@ -14,7 +13,7 @@ public class ConfiguracaoSingleton {
       props = new Properties();
       // carregar o objeto com as configurações do arquivo
       try {
-        props.load(ConfiguracaoSingleton.class.getResourceAsStream("/app.properties"));
+        props.load(Filial.class.getResourceAsStream("/filial.properties"));
       } catch (IOException e) {
         e.printStackTrace();
       }
@@ -23,6 +22,6 @@ public class ConfiguracaoSingleton {
   }
 
   // 3 - Construtor privado
-  private ConfiguracaoSingleton() {
+  private Filial() {
   }
 }

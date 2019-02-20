@@ -2,21 +2,22 @@ package br.com.fiap.revisao.bean;
 
 public class Funcionario extends Pessoa {
 
-	protected double salario;
-	
-	public double calcularBonificacao() {
-		return salario/10;
-	}
+  protected double salario;
 
-	public double getSalario() {
-		return salario;
-	}
+  public double calcularBonificacao() {
+    return salario / 10;
+  }
 
-	public void setSalario(double salario) {
-		this.salario = salario;
-	}
+  public double getSalario() {
+    return salario;
+  }
 
-	@Override
-	public void falar() {}
-	
+  public void setSalario(double salario) {
+    this.salario = salario;
+  }
+
+  @Override
+  public void falar() {
+  }
+
 }
