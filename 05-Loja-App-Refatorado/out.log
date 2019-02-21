@@ -1,0 +1,5 @@
+2019-02-20 20:35:56 TRACE EstoqueBO:17 - Inicializando a aplicação
+2019-02-20 20:36:02 INFO  EstoqueBO:37 - Recuperando a configuração do Produto: 
+2019-02-20 21:21:12 WARN  EstoqueBO:17 - Inicializando a aplicação
+2019-02-20 21:21:16 DEBUG EstoqueBO:13 - Código pesquisado: 401
+2019-02-20 21:21:16 WARN  EstoqueBO:37 - Finalizando a aplicação
