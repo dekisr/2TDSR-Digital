@@ -23,5 +23,6 @@ public class ConfiguracaoSingleton {
   }
 
   // 3 - Construtor privado
-  private ConfiguracaoSingleton() {}
+  private ConfiguracaoSingleton() {
+  }
 }

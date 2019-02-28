@@ -8,6 +8,7 @@ import br.com.fiap.loja.to.ProdutoTO;
 //Camada de negócios
 public class EstoqueBO {
   private static Logger log = Logger.getLogger(EstoqueBO.class);
+
   public ProdutoTO consultarProduto(int codigo) throws ProdutoNaoEncontradoException {
     ProdutoTO produto;
     log.debug("Código pesquisado: " + codigo);

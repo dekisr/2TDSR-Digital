@@ -12,6 +12,7 @@ import br.com.fiap.loja.to.ProdutoTO;
 
 public class TerminalConsulta {
   private static Logger log = Logger.getLogger(EstoqueBO.class);
+
   // camada de apresentação
   public static void main(String[] args) {
     log.warn("Inicializando a aplicação");
@@ -36,5 +37,5 @@ public class TerminalConsulta {
     sc.close();
     log.warn("Finalizando a aplicação");
   }
-  
+
 }
