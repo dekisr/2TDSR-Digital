@@ -39,14 +39,14 @@ public class EmpresaResource {
   public void deletar(@PathParam("id") int codigo) {
     try {
       dao.remover(codigo);
-      dao.commit();      
+      dao.commit();
     } catch (Exception e) {
       e.printStackTrace();
       throw new InternalServerErrorException();// 500
 //      return Response.serverError().build();
     }
 //    return Response.noContent().build(); 204
-    
+
 //    catch (CommitException e) {
 //      e.printStackTrace();
 //    } catch (CodigoInvalidoException e) {

@@ -13,7 +13,7 @@ import br.com.fiap.loja.to.ProdutoTO;
 public class TerminalConsulta {
   private static Logger log = Logger.getLogger(EstoqueBO.class);
 
-  // camada de apresentação
+  // Camada de apresentação
   public static void main(String[] args) {
     log.warn("Inicializando a aplicação");
     Scanner sc = new Scanner(System.in);
