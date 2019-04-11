@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<title>Filme</title>
+</h:head>
+<h:body>
+	<h2>Cadastro do Filme</h2>
+
+	<h:messages />
+
+	<h:form>
+		<div>
+			<h:outputLabel value="Título" for="titulo" />
+			<h:inputText value="#{filmeBean.filme.titulo}" id="titulo" />
+		</div>
+		<div>
+			<h:outputLabel value="Classificação" for="classificacao" />
+			<h:selectOneRadio value="#{filmeBean.filme.classificacao}"
+				id="classificacao">
+				<f:selectItem itemLabel="Infantil" itemValue="Infantil" />
+				<f:selectItem itemLabel="Juvenil" itemValue="Juvenil" />
+				<f:selectItem itemLabel="Adulto" itemValue="Adulto" />
+			</h:selectOneRadio>
+		</div>
+		<div>
+			<h:outputLabel value="Duração" for="duracao" />
+			<h:inputText value="#{filmeBean.filme.duracao}" id="duracao" />
+		</div>
+		<div>
+			<h:outputLabel value="Estúdio" for="estudio" />
+			<h:selectOneMenu value="#{filmeBean.filme.estudio}" id="estudio">
+				<f:selectItem itemLabel="Warner Bros." itemValue="Warner Bros." />
+				<f:selectItem itemLabel="Sony Pictures" itemValue="Sony Pictures" />
+				<f:selectItem itemLabel="Universal" itemValue="Universal" />
+			</h:selectOneMenu>
+		</div>
+		<div>
+			<h:selectBooleanCheckbox value="#{filmeBean.filme.nacional}"
+				id="nacional" />
+			<h:outputLabel value="Nacional(BR)" for="nacional" />
+		</div>
+		<h:commandButton value="CADASTRAR"
+			actionListener="#{filmeBean.cadastrar()}" />
+	</h:form>
+	<h:dataTable value="#{filmeBean.listar()}" var="filme">
+		<h:column>
+			<f:facet name="header">Título</f:facet>
+			#{filme.titulo}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Classificação</f:facet>
+			#{filme.classificacao}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Duração</f:facet>
+			#{filme.duracao}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Estúdio</f:facet>
+			#{filme.estudio}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Nacional</f:facet>
+			#{filme.nacional}
+		</h:column>
+	</h:dataTable>
+</h:body>
+</html>
