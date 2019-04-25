@@ -12,27 +12,30 @@
 <h:body>
 	<div class="container">
 		<h2>Cadastro Empresa</h2>
-		<h:messages />
+		<h:messages styleClass="alert alert-success" />
 		<h:form>
 			<div class="form-group">
 				<h:outputLabel value="Nome" for="nome" />
-				<h:inputText styleClass="form-control" value="#{empresaBean.empresa.nome}" id="nome" />
+				<h:inputText styleClass="form-control"
+					value="#{empresaBean.empresa.nome}" id="nome" />
 			</div>
 			<div class="form-group">
 				<h:outputLabel value="Faturamento" for="faturamento" />
-				<h:inputText styleClass="form-control" value="#{empresaBean.empresa.faturamento}"
-					id="faturamento" />
+				<h:inputText styleClass="form-control"
+					value="#{empresaBean.empresa.faturamento}" id="faturamento" />
 			</div>
 			<div class="form-group">
 				<h:selectBooleanCheckbox
 					value="#{empresaBean.empresa.multinacional}" id="multinacional" />
 				<h:outputLabel value="Multinacional" for="multinacional" />
 			</div>
-			<h:commandButton value="CADASTRAR" styleClass="btn btn-success"
+			<h:commandButton value="#{empresaBean.empresa.codigo == 0
+			 ? 'Cadastrar':'Atualizar'}" styleClass="btn btn-success"
 				actionListener="#{empresaBean.cadastrar}" />
 		</h:form>
 		<h2>Empresas</h2>
-		<h:dataTable styleClass="table" value="#{empresaBean.listar()}" var="e">
+		<h:dataTable styleClass="table" value="#{empresaBean.listar()}"
+			var="e">
 			<h:column>
 				<f:facet name="header">Código</f:facet>
      #{e.codigo}
@@ -49,8 +52,17 @@
 				<f:facet name="header">Multinacional</f:facet>
      #{e.multinacional?"Sim":"Não"}
    </h:column>
+			<h:column>
+				<h:form>
+				  <h:commandButton value="Alterar" styleClass="btn btn-sm mr-3 btn-outline-primary">
+				    <f:setPropertyActionListener value="#{e}" target="#{empresaBean.empresa}" />
+				  </h:commandButton>
+					<h:commandButton value="Excluir"
+						styleClass="btn btn-sm btn-outline-danger"
+						action="#{empresaBean.excluir(e.codigo)}" />
+				</h:form>
+			</h:column>
 		</h:dataTable>
-
 	</div>
 
 </h:body>
