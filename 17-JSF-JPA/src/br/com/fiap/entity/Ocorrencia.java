@@ -10,70 +10,70 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="T_OCORRENCIA")
-@SequenceGenerator(name="ocorrencia",sequenceName="SQ_T_OCORRENCIA",allocationSize=1)
+@Table(name = "T_OCORRENCIA")
+@SequenceGenerator(name = "ocorrencia", sequenceName = "SQ_T_OCORRENCIA", allocationSize = 1)
 public class Ocorrencia {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="ocorrencia")
-	private int codigo;
-	
-	private Calendar data;
-	
-	private String descricao;
-	
-	private boolean anonimo;
-	
-	private String denunciante;
-	
-	private int artigo;
+  @Id
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ocorrencia")
+  private int codigo;
 
-	public int getCodigo() {
-		return codigo;
-	}
+  private Calendar data;
 
-	public void setCodigo(int codigo) {
-		this.codigo = codigo;
-	}
+  private String descricao;
 
-	public Calendar getData() {
-		return data;
-	}
+  private boolean anonimo;
 
-	public void setData(Calendar data) {
-		this.data = data;
-	}
+  private String denunciante;
 
-	public String getDescricao() {
-		return descricao;
-	}
+  private int artigo;
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+  public int getCodigo() {
+    return codigo;
+  }
 
-	public boolean isAnonimo() {
-		return anonimo;
-	}
+  public void setCodigo(int codigo) {
+    this.codigo = codigo;
+  }
 
-	public void setAnonimo(boolean anonimo) {
-		this.anonimo = anonimo;
-	}
+  public Calendar getData() {
+    return data;
+  }
 
-	public String getDenunciante() {
-		return denunciante;
-	}
+  public void setData(Calendar data) {
+    this.data = data;
+  }
 
-	public void setDenunciante(String denunciante) {
-		this.denunciante = denunciante;
-	}
+  public String getDescricao() {
+    return descricao;
+  }
 
-	public int getArtigo() {
-		return artigo;
-	}
+  public void setDescricao(String descricao) {
+    this.descricao = descricao;
+  }
 
-	public void setArtigo(int artigo) {
-		this.artigo = artigo;
-	}
-	
+  public boolean isAnonimo() {
+    return anonimo;
+  }
+
+  public void setAnonimo(boolean anonimo) {
+    this.anonimo = anonimo;
+  }
+
+  public String getDenunciante() {
+    return denunciante;
+  }
+
+  public void setDenunciante(String denunciante) {
+    this.denunciante = denunciante;
+  }
+
+  public int getArtigo() {
+    return artigo;
+  }
+
+  public void setArtigo(int artigo) {
+    this.artigo = artigo;
+  }
+
 }

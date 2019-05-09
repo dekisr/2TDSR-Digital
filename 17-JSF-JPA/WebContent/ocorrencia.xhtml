@@ -2,50 +2,65 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
-<h:head>
-	<title>Cadastro de Ocorrência</title>
-	<h:outputStylesheet library="css" name="bootstrap.min.css" />
-</h:head>
-<h:body>
-	<div class="container">
-		<h1>Ocorrência</h1>
-		<h:link outcome="lista-ocorrencia">Lista</h:link>
-		<h:messages styleClass="alert alert-success" />
-		<h:form>
-			<div class="form-group">
-				<h:outputLabel value="Data" for="data" />
-				<h:inputText styleClass="form-control"
-					value="#{ocorrenciaBean.ocorrencia.data.time}" id="data">
-					<f:convertDateTime pattern="dd/MM/yyyy" />
-				</h:inputText>
-			</div>
-			<div class="form-group">
-				<h:outputLabel value="Artigo" for="artigo" />
-				<h:inputText styleClass="form-control"
-					value="#{ocorrenciaBean.ocorrencia.artigo}" id="artigo" />
-			</div>
-			<div class="form-check mr-3">
-				<h:selectBooleanCheckbox
-					value="#{ocorrenciaBean.ocorrencia.anonimo}" styleClass="form-check-input" id="anonimo" />
-				<h:outputLabel styleClass="form-check-label" value="Anonimo" for="anonimo" />
-			</div>
-			<div class="form-group">
-        <h:outputLabel value="Denunciante" for="denunciante" />
-        <h:inputText styleClass="form-control"
-          value="#{ocorrenciaBean.ocorrencia.denunciante}" id="denunciante" />
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="_template.xhtml">
+  <ui:define name="title">Cadastro de Ocorrência</ui:define>
+  <ui:define name="content">
+    <h1>Cadastro de Ocorrência</h1>
+    <h:link outcome="lista-ocorrencia">Lista</h:link>
+    <h:messages styleClass="alert alert-success" />
+    <h:form>
+      <h:inputHidden value="#{ocorrenciaBean.ocorrencia.codigo}" />
+      <div class="form-group">
+        <h:outputLabel value="Data" for="data" />
+        <h:inputText id="data" styleClass="form-control"
+          value="#{ocorrenciaBean.ocorrencia.data.time}">
+          <f:validator validatorId="dataFutura" />
+          <f:convertDateTime pattern="dd/MM/yyyy" />
+        </h:inputText>
+        <h:message for="data" styleClass="text-danger" />
       </div>
       <div class="form-group">
-        <h:outputLabel value="Descrição" for="descricao" />
-        <h:inputTextarea id="descricao" styleClass="form-control"
-          value="#{ocorrenciaBean.ocorrencia.descricao}" />
+        <h:outputLabel value="Artigo" for="artigo" />
+        <h:inputText id="artigo" styleClass="form-control"
+          value="#{ocorrenciaBean.ocorrencia.artigo}">
+        <f:validateLongRange minimum="1" maximum="99" />
+        </h:inputText>
+        <h:message for="artigo" styleClass="text-danger" />
       </div>
-      <h:commandButton value="Cadastrar" 
-        action="#{ocorrenciaBean.cadastrar}" 
+      <div class="form-check">
+        <h:selectBooleanCheckbox for="anonimo"
+          styleClass="form-check-input"
+          value="#{ocorrenciaBean.ocorrencia.anonimo}" />
+        <h:outputLabel value="Anônimo" id="anonimo" />
+      </div>
+      <div class="form-group">
+        <h:outputLabel value="Denunciante" for="den" />
+        <h:inputText id="den" styleClass="form-control" required="true"
+          requiredMessage="Campo obrigatório"
+          value="#{ocorrenciaBean.ocorrencia.denunciante}">
+        </h:inputText>
+        <h:message for="den" styleClass="text-danger" />
+      </div>
+      <div class="form-group">
+        <h:outputLabel value="Descrição" for="desc" />
+        <h:inputTextarea id="desc" styleClass="form-control"
+          value="#{ocorrenciaBean.ocorrencia.descricao}">
+          <f:validateLength minimum="5" maximum="200" />
+        </h:inputTextarea>
+        <h:message for="desc" styleClass="text-danger" />
+      </div>
+      <h:commandButton value="Cadastrar"
+        action="#{ocorrenciaBean.cadastrar}"
         styleClass="btn btn-primary" />
-		</h:form>
-	</div>
-</h:body>
+    </h:form>
+  </ui:define>
+</ui:composition>
+
 </html>
+
+
+
